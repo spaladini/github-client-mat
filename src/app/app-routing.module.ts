@@ -12,7 +12,7 @@ const routes: Routes = [
       {
         path: 'issue-list', component: IssueListComponent
       }
-  },
+  }
 ];
 
 @NgModule({

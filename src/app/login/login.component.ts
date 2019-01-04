@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class LoginComponent implements OnInit {
   token: string;
 
   constructor(
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -20,6 +22,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.authenticationService.authenticate(this.token).subscribe(resp => {
       console.log(resp);
+      this.router.navigateByUrl('/issue-list');
     });
   }
 
