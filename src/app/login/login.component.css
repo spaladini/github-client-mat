@@ -1,0 +1,9 @@
+.loginCard {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 10vh;
+}
+
+.loginCard button {
+    width: 100%;
+}

@@ -1,3 +1,19 @@
-<p>
-  login works!
-</p>
+<mat-card class="loginCard">
+  <mat-card-title class="txt-medium">
+    Login
+  </mat-card-title>
+  <mat-card-content>
+    <form fxLayout="column">
+
+      <div fxLayout="row">
+        <mat-form-field style="width:100%">
+          <input matInput [(ngModel)]="token" placeholder="token" name="token">
+        </mat-form-field>
+      </div>
+
+    </form>
+  </mat-card-content>
+  <mat-card-actions fxLayout="row">
+    <button fxFlex="100%" mat-raised-button color="primary" (click)="login()" [disabled]="!token">Login</button>
+  </mat-card-actions>
+</mat-card>
