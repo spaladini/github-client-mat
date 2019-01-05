@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private notifications: NotificationsService
   ) { }
 
   ngOnInit() {
@@ -22,7 +24,10 @@ export class LoginComponent implements OnInit {
   login() {
     this.authenticationService.authenticate(this.token).subscribe(resp => {
       console.log(resp);
+      this.notifications.success(`Bentornato ${resp.name}`);
       this.router.navigateByUrl('/issue-list');
+    }, err => {
+      this.notifications.error(`Autenticazione fallita`);
     });
   }
 
