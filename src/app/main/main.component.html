@@ -1,6 +1,26 @@
-<mat-toolbar color="primary" role="header">
-  <span>GitHub Client</span>
-</mat-toolbar>
+<div>
+  <mat-toolbar color="primary" role="header">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Test 1</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>voicemail</mat-icon>
+        <span>Test 2</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+    <span>GitHub Client</span>
+
+  </mat-toolbar>
+</div>
 <div class="global-container">
   <router-outlet></router-outlet>
 </div>

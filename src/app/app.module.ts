@@ -1,7 +1,7 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatInputModule, MatMenuModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -36,6 +36,8 @@ import { MainComponent } from './main/main.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
 
     //
     SimpleNotificationsModule.forRoot()
