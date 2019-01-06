@@ -1,5 +1,6 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatIconModule, MatInputModule, MatMenuModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
@@ -28,6 +29,7 @@ import { MainComponent } from './main/main.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
 
     // Material
     MatToolbarModule,

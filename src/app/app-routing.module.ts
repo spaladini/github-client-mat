@@ -13,7 +13,12 @@ const routes: Routes = [
     children: [
       {
         path: 'issue-list', component: IssueListComponent
-      }
+      },
+      {
+        path: '',
+        redirectTo: 'issue-list',
+        pathMatch: 'full'
+      },
     ]
   },
   { path: '**', redirectTo: '' }
