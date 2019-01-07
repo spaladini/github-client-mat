@@ -1,11 +1,12 @@
 export class Issue {
     id: number;
     number: number;
-    status: string;
+    state: string;
     title: string;
     body: string;
     assignee: User;
-    createdBy: User;
+    assignees: Array<User>;
+    created_at: Date;
 }
 
 export class User {

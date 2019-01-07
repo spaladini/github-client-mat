@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Issue } from '../model/github-client.model';
+import { IssueService } from '../services/issue.service';
 
 @Component({
   selector: 'app-issue-list',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IssueListComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = ['number', 'title', 'state', 'created_at', 'assignee'];
+
+  issuesDs: Array<Issue>;
+
+  constructor(private issueService: IssueService) { }
 
   ngOnInit() {
+    this.issueService.getAll().subscribe(data => {
+      console.log(data);
+      this.issuesDs = data;
+    });
   }
 
 }

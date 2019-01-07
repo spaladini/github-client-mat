@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  base_path: 'https://api.github.com'
+  base_path: 'https://api.github.com',
+  repo_owner: 'spaladini',
+  repo_name: 'github-client'
 };
 
 /*

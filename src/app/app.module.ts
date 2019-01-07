@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatIconModule, MatInputModule, MatMenuModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +16,7 @@ import { HeaderInterceptorService } from './interceptors/header-interceptor.serv
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { MainComponent } from './main/main.component';
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
+    MatTableModule,
 
     //
     SimpleNotificationsModule.forRoot()
