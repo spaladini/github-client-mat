@@ -2,7 +2,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatIconModule, MatInputModule, MatMenuModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatInputModule, MatMenuModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
@@ -43,6 +43,8 @@ import { MainComponent } from './main/main.component';
     MatMenuModule,
     MatIconModule,
     MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
 
     //
     SimpleNotificationsModule.forRoot()
