@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'github-client-mat';
+
+  notificationsOptions = {
+    position: ['top', 'right'],
+    timeOut: 5000,
+    lastOnBottom: false,
+    showProgressBar: false,
+    pauseOnHover: true,
+    clickToClose: true,
+    animate: 'scale'
+  };
+
 }
