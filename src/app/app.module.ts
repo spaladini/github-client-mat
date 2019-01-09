@@ -19,6 +19,7 @@ import { HeaderInterceptorService } from './interceptors/header-interceptor.serv
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { IssueAddComponent } from './issue-add/issue-add.component';
 
 
 
@@ -27,7 +28,8 @@ import { MainComponent } from './main/main.component';
     AppComponent,
     LoginComponent,
     MainComponent,
-    IssueListComponent
+    IssueListComponent,
+    IssueAddComponent
   ],
   imports: [
     BrowserModule,

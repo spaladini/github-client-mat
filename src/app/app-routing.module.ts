@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { IssueAddComponent } from './issue-add/issue-add.component';
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
     canActivate: [UserGardService],
     children: [
       { path: 'issue-list', component: IssueListComponent },
+      { path: 'issue-add', component: IssueAddComponent },
       { path: '**', redirectTo: 'issue-list' }
     ]
   }

@@ -1,0 +1,15 @@
+<form #issueForm="ngForm" (submit)="submit()">
+  <h2>Aggiungi issue</h2>
+  <div fxLayout="column">
+    <mat-form-field fxFlex>
+      <input name="title" #issueTitle="ngModel" matInput placeholder="Titolo" [(ngModel)]="title" required>
+      <mat-error *ngIf="issueTitle.invalid">Inserisci il titolo</mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex>
+      <textarea name="body" matInput placeholder="Testo" [(ngModel)]="body" rows="10"></textarea>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <button [disabled]="!issueForm.valid" fxFlex="50%" type="submit" mat-raised-button color="primary">Aggiungi</button>
+  </div>
+</form>
