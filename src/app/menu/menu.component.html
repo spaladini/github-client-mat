@@ -1,0 +1,18 @@
+<mat-list>
+  <mat-list-item *ngIf="user">
+    <img matListAvatar [src]="user.avatar_url">
+    <h3 matLine> {{user.name}} </h3>
+    <p matLine>
+      <span> {{user.login}} </span>
+    </p>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>
+
+<mat-nav-list>
+  <mat-list-item class="page" *ngFor="let page of pages" [routerLink]="page.url">
+    <mat-icon mat-list-icon>{{page.icon}}</mat-icon>
+    {{page.name}}
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-nav-list>

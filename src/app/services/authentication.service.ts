@@ -23,4 +23,8 @@ export class AuthenticationService {
         return resp;
       }));
   }
+
+  getUserInfo(): Observable<User> {
+    return this.httpClient.get<User>(`${environment.backend_url}/user?access_token=${this.tokenService.getToken()}`);
+  }
 }

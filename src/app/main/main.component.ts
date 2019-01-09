@@ -13,8 +13,8 @@ export class MainComponent implements OnInit {
   slug = `${environment.owner}/${environment.repo}`;
 
   constructor(
-    private tokenService: TokenService,
-    private router: Router
+    private readonly tokenService: TokenService,
+    private readonly router: Router,
   ) { }
 
   ngOnInit() {

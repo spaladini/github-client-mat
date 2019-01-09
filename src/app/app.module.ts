@@ -4,8 +4,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
@@ -21,6 +23,7 @@ import { IssueAddComponent } from './issue-add/issue-add.component';
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { MenuComponent } from './menu/menu.component';
 
 
 
@@ -30,7 +33,8 @@ import { MainComponent } from './main/main.component';
     LoginComponent,
     MainComponent,
     IssueListComponent,
-    IssueAddComponent
+    IssueAddComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,9 @@ import { MainComponent } from './main/main.component';
     MatIconModule,
     MatTableModule,
     MatSortModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule,
+    MatDividerModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptorService, multi: true }
