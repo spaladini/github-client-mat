@@ -9,8 +9,9 @@
       <textarea name="body" matInput placeholder="Testo" [(ngModel)]="body" rows="10"></textarea>
     </mat-form-field>
   </div>
-  <div fxLayout="row" fxLayoutAlign="end center">
-    <a mat-button fxFlex="50%" color="warn" routerLink="/issue-list">Annulla</a>
-    <button [disabled]="!issueForm.valid" fxFlex="50%" type="submit" mat-raised-button color="primary">Aggiungi</button>
+  <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="end stretch">
+    <button fxFlexOrder="0" fxFlexOrder.gt-sm="1" [disabled]="!issueForm.valid" fxFlex="100%" type="submit"
+      mat-raised-button color="primary">Aggiungi</button>
+    <a mat-button fxFlexOrder="1" fxFlexOrder.gt-sm="0" fxFlex="100%" color="warn" routerLink="/issue-list">Annulla</a>
   </div>
 </form>
