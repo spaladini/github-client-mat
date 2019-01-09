@@ -10,6 +10,7 @@
     </mat-form-field>
   </div>
   <div fxLayout="row" fxLayoutAlign="end center">
+    <a mat-button fxFlex="50%" color="warn" routerLink="/issue-list">Annulla</a>
     <button [disabled]="!issueForm.valid" fxFlex="50%" type="submit" mat-raised-button color="primary">Aggiungi</button>
   </div>
 </form>
