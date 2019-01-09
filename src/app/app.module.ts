@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,10 +17,10 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderInterceptorService } from './interceptors/header-interceptor.service';
+import { IssueAddComponent } from './issue-add/issue-add.component';
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
-import { IssueAddComponent } from './issue-add/issue-add.component';
 
 
 
@@ -48,7 +49,8 @@ import { IssueAddComponent } from './issue-add/issue-add.component';
     MatMenuModule,
     MatIconModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatSidenavModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptorService, multi: true }

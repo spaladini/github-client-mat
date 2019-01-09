@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { TokenService } from '../services/token.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { TokenService } from '../services/token.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+
+  slug = `${environment.owner}/${environment.repo}`;
 
   constructor(
     private tokenService: TokenService,

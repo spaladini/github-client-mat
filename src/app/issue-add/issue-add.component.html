@@ -10,8 +10,7 @@
     </mat-form-field>
   </div>
   <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="end stretch">
-    <button fxFlexOrder="0" fxFlexOrder.gt-sm="1" [disabled]="!issueForm.valid" fxFlex="100%" type="submit"
-      mat-raised-button color="primary">Aggiungi</button>
-    <a mat-button fxFlexOrder="1" fxFlexOrder.gt-sm="0" fxFlex="100%" color="warn" routerLink="/issue-list">Annulla</a>
+    <button fxFlexOrder.gt-sm="1" [disabled]="!issueForm.valid" fxFlex="100%" type="submit" mat-raised-button color="primary">Aggiungi</button>
+    <a mat-button fxFlexOrder.gt-sm="0" fxFlex="100%" color="warn" routerLink="/issue-list">Annulla</a>
   </div>
 </form>

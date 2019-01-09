@@ -1,27 +1,19 @@
-<mat-toolbar color="primary" fxLayout="row">
-  <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>more_vert</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>dialpad</mat-icon>
-      <span>Redial</span>
-    </button>
-    <button mat-menu-item disabled>
-      <mat-icon>voicemail</mat-icon>
-      <span>Check voicemail</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>notifications_off</mat-icon>
-      <span>Disable alerts</span>
-    </button>
-  </mat-menu>
-  <span fxFlex>GitHub Client</span>
-  <button mat-icon-button (click)="logout()">
-    <mat-icon>exit_to_app</mat-icon>
-  </button>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="push">
+    contenuto menù laterale
+  </mat-sidenav>
 
-</mat-toolbar>
-<div class="global-container">
-  <router-outlet></router-outlet>
-</div>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" fxLayout="row">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span fxFlex>GitHub Client: {{slug}}</span>
+    </mat-toolbar>
+    <div class="global-container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

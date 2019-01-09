@@ -3,4 +3,5 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    margin: 0;
 }
