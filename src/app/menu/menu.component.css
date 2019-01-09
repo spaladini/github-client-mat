@@ -1,3 +1,13 @@
 mat-nav-list {
     padding-top: 0;
 }
+
+.menu-wrapper {
+    height: 100vh;
+}
+
+.current {
+    opacity: .75;
+    pointer-events: none;
+    cursor: default;
+}

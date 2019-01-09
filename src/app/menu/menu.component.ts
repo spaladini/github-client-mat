@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../model/github.model';
 import { AuthenticationService } from '../services/authentication.service';
 
@@ -17,10 +18,21 @@ export class MenuComponent implements OnInit {
   ];
 
 
-  constructor(private readonly authenticationService: AuthenticationService) { }
+  constructor(
+    private readonly authenticationService: AuthenticationService,
+    private readonly router: Router
+  ) { }
 
   ngOnInit() {
     this.authenticationService.getUserInfo().subscribe(user => this.user = user);
+  }
+
+  current(url: string): boolean {
+    return this.router.url.startsWith(url);
+  }
+
+  logout() {
+    this.authenticationService.logout();
   }
 
 }

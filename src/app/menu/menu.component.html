@@ -1,18 +1,30 @@
-<mat-list>
-  <mat-list-item *ngIf="user">
-    <img matListAvatar [src]="user.avatar_url">
-    <h3 matLine> {{user.name}} </h3>
-    <p matLine>
-      <span> {{user.login}} </span>
-    </p>
-    <mat-divider></mat-divider>
-  </mat-list-item>
-</mat-list>
+<div fxLayout="column" class="menu-wrapper">
 
-<mat-nav-list>
-  <mat-list-item class="page" *ngFor="let page of pages" [routerLink]="page.url">
-    <mat-icon mat-list-icon>{{page.icon}}</mat-icon>
-    {{page.name}}
+  <mat-list>
+    <mat-list-item *ngIf="user">
+      <img matListAvatar [src]="user.avatar_url">
+      <h3 matLine> {{user.name}} </h3>
+      <p matLine>
+        <span> {{user.login}} </span>
+      </p>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+
+  <mat-nav-list fxFlex>
+    <mat-list-item [ngClass]="{current:current(page.url)}" *ngFor="let page of pages" [routerLink]="page.url">
+      <mat-icon mat-list-icon>{{page.icon}}</mat-icon>
+      {{page.name}}
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-nav-list>
+
+  <mat-action-list>
     <mat-divider></mat-divider>
-  </mat-list-item>
-</mat-nav-list>
+    <button mat-list-item (click)="logout()">
+      <mat-icon mat-list-icon>exit_to_app</mat-icon>
+      Logout
+    </button>
+  </mat-action-list>
+
+</div>

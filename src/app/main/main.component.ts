@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { TokenService } from '../services/token.service';
 
 @Component({
   selector: 'app-main',
@@ -12,17 +10,10 @@ export class MainComponent implements OnInit {
 
   slug = `${environment.owner}/${environment.repo}`;
 
-  constructor(
-    private readonly tokenService: TokenService,
-    private readonly router: Router,
-  ) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  logout() {
-    this.tokenService.removeToken();
-    this.router.navigateByUrl('/login');
-  }
 
 }

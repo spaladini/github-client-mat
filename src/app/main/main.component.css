@@ -3,6 +3,10 @@ mat-sidenav-content {
     overflow: auto;
 }
 
+mat-sidenav {
+    min-width: 200px;
+}
+
 .mat-toolbar.mat-primary {
     position: fixed;
     top: 0;
