@@ -16,10 +16,14 @@ export class IssueListComponent implements OnInit {
   dataSource: MatTableDataSource<Issue>;
 
   displayedColumns: string[] = ['number', 'title', 'state', 'user', 'date'];
+  private stateIconsMap = new Map<string, string>();
 
   constructor(
     private issueService: IssueService
-  ) { }
+  ) {
+    this.stateIconsMap.set('open', 'close');
+    this.stateIconsMap.set('closed', 'done');
+  }
 
   ngOnInit() {
     this.issueService.getAll().subscribe(resp => {
@@ -29,4 +33,26 @@ export class IssueListComponent implements OnInit {
 
   }
 
+  public getIconName(issue: Issue): string {
+    // switch (issue.state) {
+    //   case 'open':
+    //     return 'close';
+    //   case 'closed':
+    //     return 'done';
+    //   default:
+    //     return 'router';
+    // }
+    if (this.stateIconsMap.has(issue.state)) {
+      return this.stateIconsMap.get(issue.state);
+    }
+    return 'router';
+  }
+
+  public checkState(issue: Issue): boolean {
+    if (issue.state === 'open') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

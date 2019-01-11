@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Issue } from '../model/github.model';
 
-const issuesURL = `${environment.backend_url}/repos/${environment.owner}/${environment.repo}/issues`;
+const issuesURL = `${environment.backend_url}/repos/${environment.owner}/${environment.repo}/issues?state=all`;
 
 @Injectable({
   providedIn: 'root'
