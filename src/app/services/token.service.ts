@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-const TOKEN_NAME = 'gh_token';
+export const TOKEN_NAME = 'gh_token';
 
 @Injectable({
   providedIn: 'root'

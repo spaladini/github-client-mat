@@ -5,6 +5,8 @@ import { Issue } from '../model/github.model';
 import { IssueService } from '../services/issue.service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
+import * as base64 from 'base-64';
+
 @Component({
   selector: 'app-issue-list',
   templateUrl: './issue-list.component.html',
@@ -27,6 +29,7 @@ export class IssueListComponent implements OnInit {
   ) {
     this.stateIconsMap.set('open', 'close');
     this.stateIconsMap.set('closed', 'done');
+    console.log(base64.encode('pippo'));
   }
 
   ngOnInit() {

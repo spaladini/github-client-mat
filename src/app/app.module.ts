@@ -25,6 +25,7 @@ import { IssueListComponent } from './issue-list/issue-list.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { MenuComponent } from './menu/menu.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -35,7 +36,8 @@ import { MenuComponent } from './menu/menu.component';
     MainComponent,
     IssueListComponent,
     IssueAddComponent,
-    MenuComponent
+    MenuComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

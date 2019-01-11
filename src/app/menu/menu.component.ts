@@ -14,7 +14,8 @@ export class MenuComponent implements OnInit {
 
   pages = [
     { url: '/issue-list', name: 'Elenco issue', icon: 'list' },
-    { url: '/issue-add', name: 'Aggiungi issue', icon: 'bug_report' }
+    { url: '/issue-add', name: 'Aggiungi issue', icon: 'bug_report' },
+    { url: '/profile', name: 'Profile utente', icon: 'account_circle'},
   ];
 
 
