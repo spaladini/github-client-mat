@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Issue } from '../model/github.model';
 
 const issuesURL = `${environment.backend_url}/repos/${environment.owner}/${environment.repo}/issues?state=all`;
-
+const CHANGE_STATE_URL = `${environment.backend_url}/repos/${environment.owner}/${environment.repo}/issues/`;
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +25,12 @@ export class IssueService {
         body: body
       }
     );
+  }
+
+  setState(issue: Issue, state: string): Observable<Issue> {
+    return this.httpClient.patch<Issue>(`${CHANGE_STATE_URL}${issue.number}`, {
+      state: state
+    });
   }
 
 }
