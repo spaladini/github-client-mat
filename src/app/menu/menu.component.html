@@ -14,17 +14,28 @@
   <mat-nav-list fxFlex>
     <mat-list-item [ngClass]="{current:current(page.url)}" *ngFor="let page of pages" [routerLink]="page.url">
       <mat-icon mat-list-icon>{{page.icon}}</mat-icon>
-      {{page.name}}
+      {{page.name | translate}}
       <mat-divider></mat-divider>
     </mat-list-item>
   </mat-nav-list>
 
   <mat-action-list>
     <mat-divider></mat-divider>
+    <button mat-list-item [matMenuTriggerFor]="langMenu">
+      <mat-icon mat-list-icon>language</mat-icon>
+      <span translate>menu.changeLanguage</span>
+    </button>
+    <mat-divider></mat-divider>
     <button mat-list-item (click)="logout()">
       <mat-icon mat-list-icon>exit_to_app</mat-icon>
-      Logout
+      <span translate>menu.logout</span>
     </button>
   </mat-action-list>
 
 </div>
+
+<mat-menu #langMenu="matMenu">
+  <button *ngFor="let lang of availableLanguages" mat-menu-item (click)=changeLanguageTo(lang)>
+    {{'menu.languages.'+lang | translate}}
+  </button>
+</mat-menu>

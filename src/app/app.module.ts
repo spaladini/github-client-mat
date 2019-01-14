@@ -4,19 +4,21 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { SimpleNotificationsModule } from 'angular2-notifications';
+import { CustomTranslateLoader } from 'src/i18n/custom-translate-loader';
+import { CustomMissingTranslationHandler } from 'src/i18n/missing-translation-handler';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderInterceptorService } from './interceptors/header-interceptor.service';
@@ -26,8 +28,6 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProfileComponent } from './profile/profile.component';
-
-
 
 @NgModule({
   declarations: [
@@ -47,7 +47,10 @@ import { ProfileComponent } from './profile/profile.component';
     HttpClientModule,
     SimpleNotificationsModule.forRoot(),
     FlexLayoutModule,
-
+    TranslateModule.forRoot({
+      missingTranslationHandler: { provide: MissingTranslationHandler, useClass: CustomMissingTranslationHandler },
+      loader: { provide: TranslateLoader, useClass: CustomTranslateLoader }
+    }),
     // Material
     MatCardModule,
     MatInputModule,
