@@ -28,6 +28,9 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SecurityTestComponent } from './security-test/security-test.component';
+import { SafeHtmlPipe } from './safe-html.pipe';
+import { SafeStylePipe } from './safe-style.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { ProfileComponent } from './profile/profile.component';
     IssueListComponent,
     IssueAddComponent,
     MenuComponent,
-    ProfileComponent
+    ProfileComponent,
+    SecurityTestComponent,
+    SafeHtmlPipe,
+    SafeStylePipe
   ],
   imports: [
     BrowserModule,

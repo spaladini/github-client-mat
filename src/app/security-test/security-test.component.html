@@ -1,0 +1,12 @@
+<div class="icon" [innerHTML]="lock | safeHtml"></div>
+
+
+<form>
+  <mat-form-field>
+    <input name="search" matInput placeholder="search" [(ngModel)]="search">
+  </mat-form-field>
+</form>
+
+<div class="card" [style.backgroundImage]="bgStyle() | safeStyle">
+  <h2>Hello!</h2>
+</div>

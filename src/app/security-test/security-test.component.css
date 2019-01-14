@@ -1,0 +1,25 @@
+.icon {
+    height: 24px;
+    width: 24px;
+}
+
+.card {
+    height: 300px;
+    width: 300px;
+    position: relative;
+    border: 1px solid #eee;
+    background-size: cover;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.card h2 {
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    color: yellow;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+}
