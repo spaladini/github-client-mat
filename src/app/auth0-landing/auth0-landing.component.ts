@@ -20,6 +20,7 @@ export class Auth0LandingComponent implements OnInit {
     console.log('==> Auth0LandingComponent');
     if (this.auth0Service.isAuthenticated()) {
       this.roles = this.auth0Service.getUserRoles();
+      this.auth0Service.scheduleRenewal();
     } else {
       this.router.navigateByUrl('/auth0-login');
     }
