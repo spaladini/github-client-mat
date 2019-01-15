@@ -31,6 +31,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { SecurityTestComponent } from './security-test/security-test.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
 import { SafeStylePipe } from './safe-style.pipe';
+import { Auth0LoginComponent } from './auth0-login/auth0-login.component';
+import { Auth0LandingComponent } from './auth0-landing/auth0-landing.component';
+import { Auth0CallbackComponent } from './auth0-callback/auth0-callback.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { SafeStylePipe } from './safe-style.pipe';
     ProfileComponent,
     SecurityTestComponent,
     SafeHtmlPipe,
-    SafeStylePipe
+    SafeStylePipe,
+    Auth0LoginComponent,
+    Auth0LandingComponent,
+    Auth0CallbackComponent
   ],
   imports: [
     BrowserModule,

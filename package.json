@@ -26,6 +26,7 @@
     "@ngx-translate/core": "^11.0.1",
     "@types/base-64": "^0.1.2",
     "angular2-notifications": "^2.0.0",
+    "auth0-js": "^9.9.0",
     "base-64": "^0.1.0",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
