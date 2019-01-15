@@ -17,4 +17,6 @@ mat-sidenav {
 
 .global-container {
     margin-top: 74px;
+    margin-left: 25px;
+    margin-right: 25px;
 }

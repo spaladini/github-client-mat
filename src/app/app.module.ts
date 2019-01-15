@@ -15,12 +15,16 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { JwtModule } from '@auth0/angular-jwt';
 import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { CustomTranslateLoader } from 'src/i18n/custom-translate-loader';
 import { CustomMissingTranslationHandler } from 'src/i18n/missing-translation-handler';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { Auth0CallbackComponent } from './auth0-callback/auth0-callback.component';
+import { Auth0LandingComponent } from './auth0-landing/auth0-landing.component';
+import { Auth0LoginComponent } from './auth0-login/auth0-login.component';
 import { HeaderInterceptorService } from './interceptors/header-interceptor.service';
 import { IssueAddComponent } from './issue-add/issue-add.component';
 import { IssueListComponent } from './issue-list/issue-list.component';
@@ -28,12 +32,13 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProfileComponent } from './profile/profile.component';
-import { SecurityTestComponent } from './security-test/security-test.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
 import { SafeStylePipe } from './safe-style.pipe';
-import { Auth0LoginComponent } from './auth0-login/auth0-login.component';
-import { Auth0LandingComponent } from './auth0-landing/auth0-landing.component';
-import { Auth0CallbackComponent } from './auth0-callback/auth0-callback.component';
+import { SecurityTestComponent } from './security-test/security-test.component';
+
+export function tokenGetter() {
+  return localStorage.getItem('id_token');
+}
 
 @NgModule({
   declarations: [
@@ -63,6 +68,14 @@ import { Auth0CallbackComponent } from './auth0-callback/auth0-callback.componen
       missingTranslationHandler: { provide: MissingTranslationHandler, useClass: CustomMissingTranslationHandler },
       loader: { provide: TranslateLoader, useClass: CustomTranslateLoader }
     }),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ['localhost:4200'],
+        blacklistedRoutes: ['example.com/examplebadroute/']
+      }
+    }),
+
     // Material
     MatCardModule,
     MatInputModule,

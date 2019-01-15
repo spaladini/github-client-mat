@@ -1,3 +1,9 @@
-<p>
-  auth0-landing works!
-</p>
+<mat-card class="auth0-container">
+  <mat-card-title>Auth0 landing page after login</mat-card-title>
+  <mat-card-content>
+    User info: {{roles}}
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button color="primary" (click)="logout()">{{'logout.logout' | translate}}</button>
+  </mat-card-actions>
+</mat-card>
