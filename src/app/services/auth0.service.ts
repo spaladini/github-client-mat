@@ -1,42 +1,53 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import * as auth0 from 'auth0-js';
+import { Auth0TokenService } from './auth0-token.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Auth0Service {
 
+  /*
   private _idToken: string;
   private _accessToken: string;
   private _expiresAt: number;
+  */
 
   auth0 = new auth0.WebAuth({
     clientID: 'ui-8dDr_I_Wa7qV_noM-hNz92MbjE8El',
     domain: 'multidata.eu.auth0.com',
     responseType: 'token id_token',
     redirectUri: 'http://localhost:4200/callback',
-    scope: 'openid'
+    scope: 'openid profile email'
   });
 
   constructor(
-    public router: Router
-  ) {
-    this._idToken = '';
-    this._accessToken = '';
-    this._expiresAt = 0;
-  }
+    private router: Router,
+    private auth0TokenService: Auth0TokenService,
+    private jwtHelperService: JwtHelperService
+  ) { }
 
   get accessToken(): string {
-    return this._accessToken;
+    return this.auth0TokenService.getAccessToken();
   }
 
   get idToken(): string {
-    return this._idToken;
+    return this.auth0TokenService.getIdToken();
   }
 
   public authenticate(): void {
     this.auth0.authorize();
+  }
+
+  public isAdmin(): boolean {
+    const decoded = this.jwtHelperService.decodeToken();
+    const roles = decoded['https://auth0.fakenamespase.multidata.it/roles'] as Array<string>;
+    if (roles && roles.includes('ADMIN')) {
+      return true;
+    }
+    return false;
   }
 
   public handleAuthentication(): void {
@@ -54,27 +65,34 @@ export class Auth0Service {
   }
 
   private localLogin(authResult): void {
-    // Set isLoggedIn flag in localStorage
-    localStorage.setItem('isLoggedIn', 'true');
-    // Set the time that the access token will expire at
-    const expiresAt = (authResult.expiresIn * 1000) + new Date().getTime();
+    /*
     this._accessToken = authResult.accessToken;
     this._idToken = authResult.idToken;
     this._expiresAt = expiresAt;
+    */
+    this.auth0TokenService.setAccessToken(authResult.accessToken);
+    this.auth0TokenService.setIdToken(authResult.idToken);
   }
 
   public logout(): void {
     // Remove tokens and expiry time
-    this._accessToken = '';
-    this._idToken = '';
-    this._expiresAt = 0;
-    // Remove isLoggedIn flag from localStorage
-    localStorage.removeItem('isLoggedIn');
+    this.auth0TokenService.clear();
 
     this.auth0.logout();
 
     // Go back to the home route
     // this.router.navigate(['/auth0-login']);
+  }
+
+  public isAuthenticated(): boolean {
+    // Check whether the current time is past the
+    // access token's expiry time
+    const idToken = this.auth0TokenService.getIdToken();
+    if (!idToken) {
+      return false;
+    }
+    const isTokenExpired = this.jwtHelperService.isTokenExpired();
+    return !!idToken && !isTokenExpired;
   }
 
 }
