@@ -34,6 +34,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
 import { SafeStylePipe } from './safe-style.pipe';
 import { SecurityTestComponent } from './security-test/security-test.component';
+import { MaterialTestComponent } from './material-test/material-test.component';
 
 export function tokenGetter() {
   return localStorage.getItem('id_token');
@@ -53,7 +54,8 @@ export function tokenGetter() {
     SafeStylePipe,
     Auth0LoginComponent,
     Auth0CallbackComponent,
-    Auth0HomeComponent
+    Auth0HomeComponent,
+    MaterialTestComponent
   ],
   imports: [
     BrowserModule,
