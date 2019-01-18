@@ -1,0 +1,10 @@
+mat-card {
+    margin: 20px;
+    min-height: calc(100vh - 75px);
+    min-width: calc(100vw - 75px);
+}
+
+mat-card form {
+    height: 100%;
+    width: 100%;
+}

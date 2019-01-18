@@ -1,82 +1,35 @@
-<form>
+<mat-card>
+  <form fxLayout="column" fxLayout.gt-sm="row wrap" fxLayoutGap="15px" fxLayoutAlign="center stretch">
 
-  <p>
-    <label for="name">Name: </label>
-    <input type="text" name="name" placeholder="your name please">
-  </p>
-  <p>
-    <mat-form-field>
-      <input matInput type="text" name="matName" placeholder="Name" required>
+    <mat-form-field fxFlex fxFlex.gt-sm="1 0 160px" appearance="legacy">
+      <mat-label>
+        <mat-icon>account_circle</mat-icon> Name
+      </mat-label>
+      <input matInput type="text" name="matName" [(ngModel)]="name" placeholder="enter your name" required>
+      <mat-error>this field is required</mat-error>
     </mat-form-field>
-  </p>
 
-  <p>
-    <label for="password">Password: </label>
-    <input type="password" name="password">
-  </p>
-
-  <p>
-    <mat-form-field>
+    <mat-form-field fxFlex fxFlex.gt-sm="1 0 160px" appearance="standard">
       <input matInput [type]="showPassword ? 'text' : 'password'" name="matPassword" placeholder="Password">
+      <mat-icon matSuffix (mouseenter)="showPassword=true" (mouseleave)="showPassword=false">lock</mat-icon>
+      <mat-hint>At least 10 characters, one symbol, one number, one lowercase etc.....</mat-hint>
     </mat-form-field>
-    <mat-icon (mouseenter)="showPassword=true" (mouseleave)="showPassword=false">lock</mat-icon>
-  </p>
-  <p>
-    <label for="lang">Language: </label>
-    <select>
-      <option value="it">Italiano</option>
-      <option value="en">English</option>
-    </select>
-  </p>
-  <p>
-    <mat-form-field>
+
+    <mat-form-field fxFlex fxFlex.gt-sm="1 0 100px" appearance="fill">
       <mat-select placeholder="Language">
         <mat-option value="it">Italiano</mat-option>
         <mat-option value="en">English</mat-option>
       </mat-select>
     </mat-form-field>
-  </p>
-  <p>
-    <label for="radioLang">RadioLang: </label>
-    <input type="radio" name="radioLang" value="it"> Italiano
-    <input type="radio" name="radioLang" value="en"> English
-  </p>
-  <p>
-    <label for="radioLang">RadioLang: </label>
-    <mat-radio-group>
-      <mat-radio-button value="it">Italiano</mat-radio-button>
-      <mat-radio-button value="en">English</mat-radio-button>
-    </mat-radio-group>
-  </p>
-  <p>
-    <label for="accept">Accept: </label>
-    <input type="checkbox" name="accept"> OK
-  </p>
-  <p>
-    <mat-checkbox> Accept</mat-checkbox>
-  </p>
-  <p>
-    <label for="date">Date: </label>
-    <input type="date" name="date">
-  </p>
-  <p>
-    <mat-form-field>
+
+    <mat-form-field fxFlex fxFlex.gt-sm="0 0 80px" appearance="outline">
+      <mat-label>Birth date</mat-label>
       <input matInput [matDatepicker]="picker" placeholder="Date">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-  </p>
 
-  <p>
-    <label for="age">Age: </label>
-    <input type="range" name="age" min="18" max="99">
-  </p>
+    <button fxFlex="40px" fxFlex.gt-sm="100%" mat-button mat-raised-button color="primary">ok</button>
 
-  <p>
-    <label for="age">Age: </label>
-    <mat-slider min="18" max="99" step="1" thumbLabel="true"></mat-slider>
-  </p>
-
-  <button mat-button mat-raised-button color="primary">ok</button>
-
-</form>
+  </form>
+</mat-card>
