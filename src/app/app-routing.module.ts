@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Auth0CallbackComponent } from './auth0-callback/auth0-callback.component';
 import { Auth0HomeComponent } from './auth0-home/auth0-home.component';
 import { Auth0LoginComponent } from './auth0-login/auth0-login.component';
+import { BootstrapTestComponent } from './bootstrap-test/bootstrap-test.component';
 import { IssueAddComponent } from './issue-add/issue-add.component';
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { LoginComponent } from './login/login.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   // GitHub token authentication
   { path: 'login', component: LoginComponent },
   { path: 'material-test', component: MaterialTestComponent },
+  { path: 'bootstrap-test', component: BootstrapTestComponent },
   {
     path: '',
     component: MainComponent,

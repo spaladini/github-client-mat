@@ -23,6 +23,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { CustomTranslateLoader } from 'src/i18n/custom-translate-loader';
@@ -42,6 +43,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
 import { SafeStylePipe } from './safe-style.pipe';
 import { SecurityTestComponent } from './security-test/security-test.component';
+import { BootstrapTestComponent } from './bootstrap-test/bootstrap-test.component';
+
 
 export function tokenGetter() {
   return localStorage.getItem('id_token');
@@ -62,10 +65,12 @@ export function tokenGetter() {
     Auth0LoginComponent,
     Auth0CallbackComponent,
     Auth0HomeComponent,
-    MaterialTestComponent
+    MaterialTestComponent,
+    BootstrapTestComponent
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
