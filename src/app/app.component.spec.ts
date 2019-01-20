@@ -1,12 +1,28 @@
-import { TestBed, async } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateService } from '@ngx-translate/core';
+import { NotificationsService, SimpleNotificationsModule } from 'angular2-notifications';
 import { AppComponent } from './app.component';
+
+class MockTranslateService {
+  public addLangs(langs: Array<string>) { }
+  public setDefaultLang(lang: string) { }
+  public use(lang: string) { }
+  public getBrowserLang(): string {
+    return 'it';
+  }
+}
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        SimpleNotificationsModule
+      ],
+      providers: [
+        { provide: TranslateService, useClass: MockTranslateService },
+        { provide: NotificationsService }
       ],
       declarations: [
         AppComponent
