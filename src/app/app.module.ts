@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
@@ -22,7 +22,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { JwtModule } from '@auth0/angular-jwt';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { SimpleNotificationsModule } from 'angular2-notifications';
@@ -33,6 +32,8 @@ import { AppComponent } from './app.component';
 import { Auth0CallbackComponent } from './auth0-callback/auth0-callback.component';
 import { Auth0HomeComponent } from './auth0-home/auth0-home.component';
 import { Auth0LoginComponent } from './auth0-login/auth0-login.component';
+import { BootstrapTestComponent } from './bootstrap-test/bootstrap-test.component';
+import { HeaderInterceptorService } from './interceptors/header-interceptor.service';
 import { IssueAddComponent } from './issue-add/issue-add.component';
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { LoginComponent } from './login/login.component';
@@ -43,7 +44,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
 import { SafeStylePipe } from './safe-style.pipe';
 import { SecurityTestComponent } from './security-test/security-test.component';
-import { BootstrapTestComponent } from './bootstrap-test/bootstrap-test.component';
 
 
 export function tokenGetter() {
@@ -81,6 +81,7 @@ export function tokenGetter() {
       missingTranslationHandler: { provide: MissingTranslationHandler, useClass: CustomMissingTranslationHandler },
       loader: { provide: TranslateLoader, useClass: CustomTranslateLoader }
     }),
+    /*
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -88,6 +89,7 @@ export function tokenGetter() {
         blacklistedRoutes: ['example.com/examplebadroute/']
       }
     }),
+    */
     // Material
     MatCardModule,
     MatInputModule,
@@ -110,7 +112,7 @@ export function tokenGetter() {
   ],
   providers: [
     // Viene usato l'interceptor della libreria https://github.com/auth0/angular2-jwt
-    // { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })
