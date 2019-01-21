@@ -39,4 +39,8 @@ export class IssueListPage {
     return element(by.css('tbody > tr:first-child > td:first-child')).getText();
   }
 
+  clickOnNewIssue() {
+    return element(by.id('add-issue-button')).click();
+  }
+
 }

@@ -1,14 +1,17 @@
 import { browser } from 'protractor';
+import { IssueAddPage } from './issue-add.po';
 import { IssueListPage } from './issue-list';
 import { LoginPage } from './login.po';
 
 describe('workspace-project App', () => {
   let loginPage: LoginPage;
   let issueListPage: IssueListPage;
+  let issueAddPage: IssueAddPage;
 
   beforeEach(() => {
     loginPage = new LoginPage();
     issueListPage = new IssueListPage();
+    issueAddPage = new IssueAddPage();
   });
 
   it('should display title app on login', () => {
@@ -63,6 +66,15 @@ describe('workspace-project App', () => {
     issueListPage.clickIdOrderButton().then(() => {
       issueListPage.getFirstIssueNo().then(no => {
         expect(no).toEqual('1');
+      });
+    });
+  });
+
+  it('should go to issue-add', () => {
+    browser.sleep(8000);
+    issueListPage.clickOnNewIssue().then(() => {
+      issueAddPage.getTitle().then(title => {
+        expect(title).toEqual('Aggiungi issue');
       });
     });
   });
