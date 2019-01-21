@@ -33,25 +33,38 @@ describe('workspace-project App', () => {
   });
 
   it('should have 20 issues', () => {
-    issueListPage.getIssuesNumber().then(title => {
-      expect(title).toEqual('20');
+    issueListPage.getIssuesNumber().then(size => {
+      expect(size).toEqual('20');
     });
   });
 
   it('should be page size == 5', () => {
-    issueListPage.getPageSize().then(title => {
-      expect(title).toEqual('5');
+    issueListPage.getPageSize().then(size => {
+      expect(size).toEqual('5');
     });
   });
 
   it('should change page size to 10', () => {
     issueListPage.changePageSize(10).then(() => {
-      browser.sleep(5000);
+      browser.sleep(1000);
       issueListPage.getPageSize().then(title => {
         expect(title).toEqual('10');
       });
     });
   });
 
+  it('should change table order', () => {
+    issueListPage.getFirstIssueNo().then(no => {
+      issueListPage.getIssuesNumber().then(size => {
+        expect(no).toEqual(size);
+      });
+    });
+
+    issueListPage.clickIdOrderButton().then(() => {
+      issueListPage.getFirstIssueNo().then(no => {
+        expect(no).toEqual('1');
+      });
+    });
+  });
 
 });

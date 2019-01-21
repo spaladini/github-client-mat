@@ -6,25 +6,6 @@ export class IssueListPage {
     return browser.get('/issue-list');
   }
 
-  getTableHeaders() {
-    const hs = element.all(by.className('.mat-sort-header-button')).then((headers: any[]) => {
-      console.log(headers);
-      browser.sleep(45000);
-
-      headers.map(h => {
-        browser.sleep(15000);
-        const headerTxt = h.getText();
-        console.log(headerTxt);
-        alert(headerTxt);
-      });
-      browser.sleep(15000);
-
-    });
-
-
-    return hs;
-  }
-
   getTitle() {
     return element(by.css('#main-title')).getText();
   }
@@ -48,6 +29,14 @@ export class IssueListPage {
         return null;
       }
     });
+  }
+
+  clickIdOrderButton() {
+    return element(by.cssContainingText('.mat-sort-header-button', 'No.')).click();
+  }
+
+  getFirstIssueNo() {
+    return element(by.css('tbody > tr:first-child > td:first-child')).getText();
   }
 
 }
