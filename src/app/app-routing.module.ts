@@ -27,7 +27,7 @@ const routes: Routes = [
       { path: 'issue-list', component: IssueListComponent },
       { path: 'issue-add', component: IssueAddComponent },
       { path: 'profile', component: ProfileComponent },
-      // { path: '**', redirectTo: 'issue-list' } //commentato per demo Auth0
+      { path: '**', redirectTo: 'issue-list' } // commentato per demo Auth0
     ]
   },
 
