@@ -5,6 +5,7 @@ export interface Translation {
         addIssue: string,
         profile: string,
         logout: string,
+        wsTest: string,
         changeLanguage: string,
         languages: {
             it: string,

@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>WebSocket test page</mat-card-title>
+  <mat-card-content>
+    <div *ngIf="history.length>0">
+      <div *ngFor="let message of history">{{message}}</div>
+    </div>
+    <div *ngIf="history.length==0">
+      <p>Empty history, write a message!</p>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <form #issueForm="ngForm" (submit)="send()">
+      <div fxLayout="row">
+        <mat-form-field fxFlex="80%">
+          <input name="title" #issueTitle="ngModel" matInput [(ngModel)]="message" required>
+        </mat-form-field>
+        <button type="submit" fxFlex="20%" [disabled]="!message" mat-flat-button color="primary">Send</button>
+      </div>
+    </form>
+  </mat-card-actions>
+</mat-card>

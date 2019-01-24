@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   backend_url: 'https://api.github.com',
   owner: 'spaladini',
-  repo: 'github-client'
+  repo: 'github-client',
+  ws_url: 'ws://echo.websocket.org'
 };
 
 /*

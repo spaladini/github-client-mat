@@ -7,6 +7,7 @@ export const en: Translation = {
         addIssue: 'Add issue',
         profile: 'Profile',
         logout: 'Logout',
+        wsTest: 'Web Socket',
         changeLanguage: 'Change language',
         languages: {
             it: 'Italian',

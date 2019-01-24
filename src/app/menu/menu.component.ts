@@ -18,6 +18,7 @@ export class MenuComponent implements OnInit {
     { url: '/issue-add', name: 'menu.addIssue', icon: 'bug_report' },
     { url: '/profile', name: 'menu.profile', icon: 'account_circle' },
     { url: '/sec-test', name: 'menu.securityTest', icon: 'lock' },
+    { url: '/ws-test', name: 'menu.wsTest', icon: 'bug_report' },
   ];
 
   availableLanguages: string[] = [];
