@@ -8,6 +8,7 @@ export const en: Translation = {
         profile: 'Profile',
         logout: 'Logout',
         changeLanguage: 'Change language',
+        wsTest: 'WebSocket test',
         languages: {
             it: 'Italian',
             en: 'English'

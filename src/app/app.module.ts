@@ -44,6 +44,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
 import { SafeStylePipe } from './safe-style.pipe';
 import { SecurityTestComponent } from './security-test/security-test.component';
+import { WsTestComponent } from './ws-test/ws-test.component';
 
 
 export function tokenGetter() {
@@ -66,7 +67,8 @@ export function tokenGetter() {
     Auth0CallbackComponent,
     Auth0HomeComponent,
     MaterialTestComponent,
-    BootstrapTestComponent
+    BootstrapTestComponent,
+    WsTestComponent
   ],
   imports: [
     BrowserModule,

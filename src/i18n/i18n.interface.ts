@@ -6,6 +6,7 @@ export interface Translation {
         profile: string,
         logout: string,
         changeLanguage: string,
+        wsTest: string,
         languages: {
             it: string,
             en: string

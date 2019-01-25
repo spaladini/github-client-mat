@@ -12,6 +12,7 @@ import { MaterialTestComponent } from './material-test/material-test.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SecurityTestComponent } from './security-test/security-test.component';
 import { UserGardService } from './services/user-gard.service';
+import { WsTestComponent } from './ws-test/ws-test.component';
 
 const routes: Routes = [
   // GitHub token authentication
@@ -27,6 +28,7 @@ const routes: Routes = [
       { path: 'issue-list', component: IssueListComponent },
       { path: 'issue-add', component: IssueAddComponent },
       { path: 'profile', component: ProfileComponent },
+      { path: 'ws-test', component: WsTestComponent },
       { path: '**', redirectTo: 'issue-list' } // commentato per demo Auth0
     ]
   },
