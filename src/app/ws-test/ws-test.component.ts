@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NotificationsService } from 'angular2-notifications';
+import { Subscription } from 'rxjs';
 import { SocketHandlerService } from '../services/socket-handler.service';
 
 @Component({
@@ -7,11 +8,13 @@ import { SocketHandlerService } from '../services/socket-handler.service';
   templateUrl: './ws-test.component.html',
   styleUrls: ['./ws-test.component.css']
 })
-export class WsTestComponent implements OnInit {
+export class WsTestComponent implements OnInit, OnDestroy {
 
   history: Array<string> = new Array();
 
   message: string;
+
+  subscription: Subscription;
 
   constructor(
     private socketHandler: SocketHandlerService,
@@ -21,7 +24,7 @@ export class WsTestComponent implements OnInit {
   ngOnInit() {
     this.socketHandler.connect();
 
-    this.socketHandler.messages.subscribe(next => {
+    this.subscription = this.socketHandler.messages.subscribe(next => {
       console.log(next);
       this.history.push(next);
     }, err => {
@@ -29,11 +32,25 @@ export class WsTestComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   send() {
     this.socketHandler.send(this.message);
     this.message = null;
   }
 
+  isOpen() {
+    return this.socketHandler.isOpen();
+  }
 
+  disconnect() {
+    this.socketHandler.disconnect();
+  }
+
+  connect() {
+    this.socketHandler.connect();
+  }
 
 }

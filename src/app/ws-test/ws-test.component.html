@@ -1,5 +1,10 @@
 <mat-card>
-  <mat-card-title>WebSocket test page</mat-card-title>
+  <mat-card-title>
+    <span [ngClass]="{'success' : isOpen(), 'error' : !isOpen()}">&bull;&nbsp;</span>
+    <span fxFlex>WebSocket test page</span>
+    <button type="submit" fxFlex="10%" mat-flat-button color="primary" (click)="connect()">Connect</button>
+    <button type="submit" fxFlex="10%" mat-flat-button color="primary" (click)="disconnect()">Disconnect</button>
+  </mat-card-title>
   <mat-card-content>
     <div *ngIf="history.length>0">
       <div *ngFor="let message of history">{{message}}</div>
